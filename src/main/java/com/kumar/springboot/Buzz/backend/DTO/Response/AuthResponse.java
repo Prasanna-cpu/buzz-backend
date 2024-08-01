@@ -1,0 +1,13 @@
+package com.kumar.springboot.Buzz.backend.DTO.Response;
+
+
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class AuthResponse {
+    private String jwt;
+    private boolean status;
+}
