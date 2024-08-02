@@ -2,7 +2,7 @@ package com.kumar.springboot.Buzz.backend.Controller;
 
 
 import com.kumar.springboot.Buzz.backend.DTO.PostDTO;
-import com.kumar.springboot.Buzz.backend.DTO.Response.PostResponse;
+
 import com.kumar.springboot.Buzz.backend.Service.Abstraction.PostService;
 import com.kumar.springboot.Buzz.backend.Service.Abstraction.UserService;
 import jakarta.transaction.Transactional;
