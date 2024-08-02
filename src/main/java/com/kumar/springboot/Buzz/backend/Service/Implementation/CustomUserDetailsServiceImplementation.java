@@ -1,4 +1,4 @@
-package com.kumar.springboot.Buzz.backend.Service;
+package com.kumar.springboot.Buzz.backend.Service.Implementation;
 
 import com.kumar.springboot.Buzz.backend.Entity.Users;
 import com.kumar.springboot.Buzz.backend.Repository.UserRepository;

@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
 @Entity(name="post")
 public class Post {
 
@@ -49,13 +50,23 @@ public class Post {
     @Column(name="is_post")
     private boolean isPost;
 
-//    @CreatedDate
-//    @Column(name = "created_at",nullable = false,updatable = false)
-//    private Date createdAt;
+    private boolean is_liked = false;
+    private boolean is_repost=false;
+
+    private LocalDateTime createdAt;
+
+//    private LocalDateTime updatedAt;
 //
-//    @LastModifiedDate
-//    @Column(name = "updated_at",nullable = false)
-//    private Date updatedAt;
+//    @PrePersist
+//    public void prePersist() {
+//        createdAt = LocalDateTime.now();
+//        updatedAt = createdAt;
+//    }
+//
+//    @PreUpdate
+//    public void preUpdate() {
+//        updatedAt = LocalDateTime.now();
+//    }
 
 
 

@@ -6,13 +6,13 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity(name="likes")
 public class Like {
 
@@ -26,11 +26,19 @@ public class Like {
     @ManyToOne
     private Post post;
 
-//    @CreatedDate
-//    @Column(name = "created_at",nullable = false,updatable = false)
-//    private Date createdAt;
-//
-//    @LastModifiedDate
-//    @Column(name = "updated_at",nullable = false)
-//    private Date updatedAt;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+        updatedAt = createdAt;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

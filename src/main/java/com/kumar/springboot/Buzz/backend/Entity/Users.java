@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "users")
 public class Users {
@@ -87,13 +87,21 @@ public class Users {
     @Embedded
     private Verification verification;
 
-//    @CreatedDate
-//    @Column(name = "created_at",nullable = false,updatable = false)
-//    private Date createdAt;
-//
-//    @LastModifiedDate
-//    @Column(name = "updated_at",nullable = false)
-//    private Date updatedAt;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+        updatedAt = createdAt;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
 
 
