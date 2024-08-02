@@ -26,7 +26,7 @@ public class CustomUserDetailsServiceImplementation implements UserDetailsServic
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users user=userRepository.findByEmail(username);
+        Users user=userRepository.findByEmail(username).orElse(null);
 
         if(user==null || user.isLogin_with_google()){
             throw new UsernameNotFoundException("User not found: "+username);

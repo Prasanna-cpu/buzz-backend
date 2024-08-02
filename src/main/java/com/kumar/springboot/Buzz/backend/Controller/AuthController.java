@@ -65,7 +65,7 @@ public class AuthController {
         String fullName= user.getFullName();
         String birthDate=user.getBirthDate();
 
-        Users existingUser=userRepository.findByEmail(email);
+        Users existingUser=userRepository.findByEmail(email).orElse(null);
 
         if(existingUser!=null){
             throw new UserException("Email is already taken");

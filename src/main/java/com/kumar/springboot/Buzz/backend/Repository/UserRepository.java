@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<Users,Long> {
 
-     Users findByEmail(String email);
+
+     Optional<Users> findByEmail(String email);
 
 
      @Query("SELECT DISTINCT u FROM Users u WHERE u.fullName LIKE %:query% OR u.email LIKE %:query%")
